@@ -94,7 +94,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _monk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./monk */ \"./src/monk.js\");\n \n// import Ghost from \"./ghost\"; \n\nclass Game {\n    constructor() {\n        this.monk = new _monk__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; \n    }\n\n    animate(ctx, canvas) {\n        this.monk.listenForMovement(); \n        setInterval(() => {\n           ctx.clearRect(0, 0, canvas.width, canvas.height); \n           this.monk.drawMonkSprite(ctx); \n           this.monk.moveMonk(); \n        }, 20)\n    }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Game); \n\n//# sourceURL=webpack:///./src/game.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _monk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./monk */ \"./src/monk.js\");\n/* harmony import */ var _ghost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ghost */ \"./src/ghost.js\");\n \n \n\nclass Game {\n    constructor() {\n        this.monk = new _monk__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; \n        this.ghosts = [];\n         \n    }\n\n    animate(ctx, canvas) {\n        this.monk.listenForMovement(); \n        // this.spawnGhosts(); \n        setInterval(() => {\n            ctx.clearRect(0, 0, canvas.width, canvas.height); \n            this.monk.drawMonkSprite(ctx); \n            this.monk.moveMonk(); \n            // this.animateGhosts(ctx, canvas); \n        }, 20)\n    }\n\n    spawnGhosts() {\n        setInterval(() => {\n            this.ghosts.push(new _ghost__WEBPACK_IMPORTED_MODULE_1__[\"default\"]); \n        }, 6000)\n    }\n\n    animateGhosts(ctx, canvas) {\n        for (let i = 0; i < this.ghosts.length; i++) {\n            this.ghosts[i].drawGhostSprite(ctx);\n            this.ghosts[i].update(canvas);\n        }\n    }\n    \n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Game); \n\n//# sourceURL=webpack:///./src/game.js?");
+
+/***/ }),
+
+/***/ "./src/ghost.js":
+/*!**********************!*\
+  !*** ./src/ghost.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sprite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sprite */ \"./src/sprite.js\");\n \n\nclass Ghost extends _sprite__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\n  constructor() {\n    super(); \n    this.keys = [];\n    this.ghost = {\n      x: 700,\n      y: this.getRandomY(50, 450),\n      width: 1408,\n      height: 1161,\n      frameX: 0,\n      frameY: 0,\n      speed: Math.random() * 1.5 + 1.0,\n      // moving: false,\n    };\n    this.ghostImgs = [\n      \"ghost_cartoon_1.png\",\n      \"ghost_cartoon_2.png\",\n      \"ghost_cartoon_3.png\",\n      \"ghost_cartoon_4.png\",\n      \"ghost_cartoon_5.png\",\n    ];\n    this.ghostSprite = new Image();\n    this.ghostSprite.src = this.ghostImgs[\n      Math.floor(Math.random() * this.ghostImgs.length)\n    ];\n  }\n\n  getRandomY(min, max) {\n    return Math.floor(Math.random() * (max - min + 1) + min);\n  }\n\n  drawGhostSprite(ctx) {\n    this.drawSprite(\n      ctx,\n      this.ghostSprite,\n      this.ghost.frameX,\n      this.ghost.frameY,\n      this.ghost.width,\n      this.ghost.height,\n      this.ghost.x,\n      this.ghost.y,\n      this.ghost.width /20,\n      this.ghost.height /20\n    )\n  }\n\n  update(canvas) {\n    if (this.ghost.x > 0 - (this.ghost.width/20)) {\n      this.ghost.x -= this.ghost.speed; \n    } else {\n      this.ghost.x = canvas.width + (this.ghost.width / 20)\n    }\n  }\n  \n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Ghost); \n\n//# sourceURL=webpack:///./src/ghost.js?");
 
 /***/ }),
 

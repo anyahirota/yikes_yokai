@@ -1,19 +1,17 @@
 import Sprite from "./sprite"; 
 
-const ghosts = []; 
-ghosts.push(new Ghost()); 
-
 class Ghost extends Sprite {
   constructor() {
+    super(); 
     this.keys = [];
     this.ghost = {
-      x: 900,
-      y: 0,
+      x: 700,
+      y: this.getRandomY(50, 450),
       width: 1408,
       height: 1161,
       frameX: 0,
       frameY: 0,
-      speed: Math.random() * 1.5 + 3.5,
+      speed: Math.random() * 1.5 + 1.0,
       // moving: false,
     };
     this.ghostImgs = [
@@ -29,6 +27,10 @@ class Ghost extends Sprite {
     ];
   }
 
+  getRandomY(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   drawGhostSprite(ctx) {
     this.drawSprite(
       ctx,
@@ -39,10 +41,19 @@ class Ghost extends Sprite {
       this.ghost.height,
       this.ghost.x,
       this.ghost.y,
-      this.ghost.width /10,
-      this.ghost.height /10
+      this.ghost.width /20,
+      this.ghost.height /20
     )
+  }
+
+  update(canvas) {
+    if (this.ghost.x > 0 - (this.ghost.width/20)) {
+      this.ghost.x -= this.ghost.speed; 
+    } else {
+      this.ghost.x = canvas.width + (this.ghost.width / 20)
     }
+  }
+  
 }
 
 export default Ghost; 
