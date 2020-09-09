@@ -1,5 +1,6 @@
 console.log("Webpack is working!");
 import Monk from "./monk"; 
+import Game from "./game"; 
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -8,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     canvas.width = 800; 
     canvas.height = 500; 
 
-    const monk = new Monk; 
-    monk.animate(ctx, canvas);
+    const game = new Game; 
+    game.animate(ctx, canvas);
 })
 

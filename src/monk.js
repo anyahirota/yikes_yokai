@@ -1,5 +1,8 @@
-class Monk {
+import Sprite from "./sprite"; 
+
+class Monk extends Sprite{
     constructor() {
+        super(); 
         this.keys = [];
         this.monk = {
             x: 80,
@@ -15,29 +18,41 @@ class Monk {
         this.monkSprite.src = "monk.png";
   }
 
-  drawMonkSprite(ctx, img, sX, sY, sW, sH, dX, dY, dW, dH) {
-    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
+  drawMonkSprite(ctx) {
+    this.drawSprite(
+      ctx,
+      this.monkSprite,
+      this.monk.frameX,
+      this.monk.frameY,
+      this.monk.width,
+      this.monk.height,
+      this.monk.x,
+      this.monk.y,
+      this.monk.width / 55,
+      this.monk.height / 55
+    );
   }
 
-  animate(ctx, canvas) {
-      this.listenForMovement(); 
-      setInterval(() => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        this.drawMonkSprite(
-            ctx, 
-            this.monkSprite,
-            this.monk.frameX,
-            this.monk.frameY,
-            this.monk.width,
-            this.monk.height,
-            this.monk.x,
-            this.monk.y,
-            this.monk.width / 55,
-            this.monk.height / 55
-            );
-        this.moveMonk();
-    }, 20)
-  }
+
+//   animate(ctx, canvas) {
+//       this.listenForMovement(); 
+//       setInterval(() => {
+//         ctx.clearRect(0, 0, canvas.width, canvas.height);
+//         this.drawSprite(
+//             ctx, 
+//             this.monkSprite,
+//             this.monk.frameX,
+//             this.monk.frameY,
+//             this.monk.width,
+//             this.monk.height,
+//             this.monk.x,
+//             this.monk.y,
+//             this.monk.width / 55,
+//             this.monk.height / 55
+//             );
+//         this.moveMonk();
+//     }, 20)
+//   }
 
   listenForMovement() {
     window.addEventListener("keydown", (e) => {
