@@ -1,0 +1,6 @@
+#game-canvas {
+    width: 800px;
+    height: 500px; 
+    border: 1px solid black; 
+    /* background-color: #3e7dc1;  */
+}
