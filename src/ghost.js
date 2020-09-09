@@ -1,10 +1,10 @@
 import Sprite from "./sprite"; 
 
 class Ghost extends Sprite {
-  constructor() {
+  constructor(id) {
     super(); 
-    this.keys = [];
     this.ghost = {
+      id: id, 
       x: 700,
       y: this.getRandomY(50, 450),
       width: 1408,

@@ -1,4 +1,5 @@
-import Sprite from "./sprite"; 
+import Sprite from "./sprite";
+import Beam from "./beam";  
 
 class Monk extends Sprite{
     constructor() {
@@ -16,6 +17,7 @@ class Monk extends Sprite{
         };
         this.monkSprite = new Image();
         this.monkSprite.src = "monk.png";
+        this.beams = []; 
   }
 
   drawMonkSprite(ctx) {
@@ -31,33 +33,24 @@ class Monk extends Sprite{
       this.monk.width / 55,
       this.monk.height / 55
     );
+    this.animateBeams(ctx); 
   }
 
-
-//   animate(ctx, canvas) {
-//       this.listenForMovement(); 
-//       setInterval(() => {
-//         ctx.clearRect(0, 0, canvas.width, canvas.height);
-//         this.drawSprite(
-//             ctx, 
-//             this.monkSprite,
-//             this.monk.frameX,
-//             this.monk.frameY,
-//             this.monk.width,
-//             this.monk.height,
-//             this.monk.x,
-//             this.monk.y,
-//             this.monk.width / 55,
-//             this.monk.height / 55
-//             );
-//         this.moveMonk();
-//     }, 20)
-//   }
+  animateBeams(ctx) {
+      for (let i = 0; i < this.beams.length; i++) {
+          this.beams[i].drawBeam(ctx);
+          this.beams[i].moveBeam();
+          if (this.beams[i].x > 800 + this.beams[i].radius) {
+              this.beams.splice(this.beams.indexOf(this.beams[i]), 1);   
+          }
+      }
+  }
 
   listenForMovement() {
     window.addEventListener("keydown", (e) => {
         this.keys[e.keyCode] = true;
         if (e.keyCode === 32) {
+            this.beams.push(new Beam(this.monk.x + (this.monk.width / 55), this.monk.y + (this.monk.height / 55)/2)); 
             this.monk.frameX = 0;
         }
     });
