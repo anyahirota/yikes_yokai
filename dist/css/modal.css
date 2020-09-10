@@ -1,0 +1,252 @@
+@font-face {
+  font-family: mikiyu;
+  src: url("../mikiyu-mokomori-kuro.ttf");
+}
+
+.welcome-modal-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-modal-background {
+  z-index: 10;
+  position: fixed;
+  background-image: url("../images/waves.png");
+  background-position: center;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.welcome-form-container {
+  z-index: 11;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-form-border {
+  z-index: 12; 
+  display: flex;
+  justify-content: center;
+  background-image: url("../images/print1.png");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.5);
+  border:5px solid black; 
+  padding: 30px; 
+}
+
+.welcome-form {
+  font-family: mikiyu;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 12;
+  width: 500px;
+  height: 50%; 
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+  border:5px solid black; 
+}
+
+.welcome-msg1 {
+  width: 100%; 
+  text-align: center;
+  font-size: 30px;
+  margin: 20px 0px 15px 0px;  
+}
+
+.welcome-msg2 {
+  width: 100%; 
+  text-align: center;
+  font-size: 40px;
+    
+}
+
+.welcome-img-collage {
+  position: relative;
+  margin: 15px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-monk {
+  height: 120px; 
+  width: auto; 
+  margin-top: 30px;
+}
+
+.welcome-ghost1 {
+  position: absolute;
+  height: 75px; 
+  width: auto; 
+  right: 75px; 
+  top: 0; 
+}
+
+.welcome-ghost2 {
+  position: absolute;
+  height: 55px; 
+  width: auto; 
+  left: 75px; 
+  top: 25px; 
+}
+
+.welcome-next-button {
+  border:5px solid black; 
+  margin: 10px 0px 15px 0px;
+  padding: 10px 15px; 
+  font-size: 18px; 
+}
+
+.welcome-next-button:hover {
+  color:white; 
+  background-color: black;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+#close-welcome {
+  display: none;
+}
+
+.story-modal-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#story-background-z {
+  z-index: 7;
+}
+
+#story-form-z {
+  z-index: 8;
+}
+
+.story-form-border {
+  z-index: 9; 
+  display: flex;
+  justify-content: center;
+  background-image: url("../images/red_pattern.png");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.5);
+  border:5px solid black; 
+  padding: 30px; 
+}
+
+.story-form {
+  font-family: mikiyu;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 12;
+  width: 500px;
+  height: 50%; 
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+  border:5px solid black; 
+  padding: 0px 10px;
+}
+
+.story-form-title {
+  margin: 20px 0px 10px 0px;
+  font-size: 25px;
+  text-align: center; 
+}
+
+.yokai-description {
+  font-size: 14px; 
+}
+
+.story-form > p {
+  text-align: center;
+  line-height: 20px;
+} 
+
+.story-img-collage {
+  display: flex;
+  position: relative; 
+  margin: 15px 0px;
+}
+
+.story-house {
+  height: 50px; 
+  width: auto;
+}
+
+.story-ghost {
+  height: 25px;
+  width: auto; 
+  position: absolute;
+  left: 100%; 
+}
+
+.story-description {
+  margin-bottom: 5px;
+}
+
+#close-story {
+  display: none;
+}
+
+.instructions-modal-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#inst-background-z {
+  z-index: 4;
+}
+
+#inst-form-z {
+  z-index: 5; 
+}
+
+.instructions-form-border {
+  z-index: 6; 
+  display: flex;
+  justify-content: center;
+  background-image: url("../images/floral_pattern.png");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.5);
+  border:5px solid black; 
+  padding: 30px; 
+}
+
+.instructions-form {
+  font-family: mikiyu;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 12;
+  width: 500px;
+  height: 50%; 
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+  border:5px solid black; 
+  padding: 0px 10px;
+}
+
+
+

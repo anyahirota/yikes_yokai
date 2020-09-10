@@ -1,30 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header class="title-bar">
-        <img class="house" src="images/house.png" alt="">
-        <div class="title">
-            <h1>Yikes, Yokai!</h1>
-            <img class="cute_ghost" src="images/cute_ghost.png" alt="">
-            <img class="cute_ghost_2" src="images/cute_ghost_2.png" alt="">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/modal.css">
+    </head>
+    <body>
+
+        <div class="welcome-modal-container">
+            <div class="welcome-modal-background"></div>
+            <div class="welcome-form-container" >
+                <div class="welcome-form-border">
+                    <div class="welcome-form">
+                        <h1 class="welcome-msg1">Welcome to</h1>
+                        <h1 class="welcome-msg2">Yikes, Yokai!</h1>
+                        <div class="welcome-img-collage">
+                            <img class="welcome-monk" src="images/welcome_monk.png" alt="">
+                            <img class="welcome-ghost1" src="images/cute_ghost.png" alt="">
+                            <img class="welcome-ghost2" src="images/cute_ghost_2.png" alt="">
+                        </div>
+                        <button id="welcome-button" class="welcome-next-button">Next</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <img class="house" src="images/house.png" alt="">
-    </header>
-    <audio id="game-music" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/Adorable+Japanese+Music+Traditional+Koto%2C+Shamisen%2C+Bamboo+Flute+Music!.mp3"></audio>
-    <button id="play-music">play</button>
-    <button id="pause-music">pause</button>
-    <div class="game-container">
-        <div class="game">
-            <canvas id="game-canvas"></canvas>
-            <script src="main.js"></script>
+
+        <div class="story-modal-container" >
+            <div class="welcome-modal-background" id="story-background-z"></div>
+            <div class="welcome-form-container" id="story-form-z">
+                <div class="story-form-border">
+                    <div class="story-form">
+                        <h1 class="story-form-title">Save the town from <br> scary yokai!</h1>
+                        <p class="yokai-description">(Yokai are a class of supernatural monsters and spirits in Japanese folklore.)</p>
+                        <div class="story-img-collage">
+                            <img class="story-house" src="images/house.png" alt="">
+                            <img class="story-ghost" src="images/ghost_cartoon_2.png" alt="">
+                        </div>
+                        <p class="story-description">
+                            In old Japan, a small country village is plagued by nightly hauntings and possessions. 
+                            Tonight, the village has called upon the famous exorcist monk, known for his light wielding abilities.
+                            Will he succeed and vanquish the yokai, or will the village continue to suffer under the cruel spirits? 
+                        </p>
+                        <button id="story-button" class="welcome-next-button">Next</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+
+        <div class="instructions-modal-container">
+            <div class="welcome-modal-background" id="inst-background-z"></div>
+            <div class="welcome-form-container" id="inst-form-z">
+                <div class="instructions-form-border">
+                    <div class="instructions-form">
+                        <h1>Instructions</h1>
+                        <h2>Moving</h2>
+                        <h2>Shooting</h2>
+                        <button id="instructions-button" class="welcome-next-button">Enter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="title-bar">
+            <img class="house" src="images/house.png" alt="">
+            <div class="title">
+                <h1>Yikes, Yokai!</h1>
+                <img class="cute_ghost" src="images/cute_ghost.png" alt="">
+                <img class="cute_ghost_2" src="images/cute_ghost_2.png" alt="">
+            </div>
+            <img class="house" src="images/house.png" alt="">
+        </header>
+
+        <audio id="game-music" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/Adorable+Japanese+Music+Traditional+Koto%2C+Shamisen%2C+Bamboo+Flute+Music!.mp3"></audio>
+        <button id="play-music">play</button>
+        <button id="pause-music">pause</button>
+
+        <div class="game-container">
+            <div class="game">
+                <canvas id="game-canvas"></canvas>
+                <script src="main.js"></script>
+            </div>
+        </div>
+
+
+    </body>
 </html>

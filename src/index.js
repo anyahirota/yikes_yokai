@@ -4,34 +4,70 @@ import Game from "./game";
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const canvas = document.getElementById("game-canvas"); 
-    const ctx = canvas.getContext("2d");
-    canvas.width = 800; 
-    canvas.height = 500; 
+  const canvas = document.getElementById("game-canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = 800;
+  canvas.height = 500;
 
-    const game = new Game; 
-    game.animate(ctx, canvas);
+  // const game = new Game;
+  // game.animate(ctx, canvas);
 
-    const music = document.getElementById("game-music");
-    const playButton = document.getElementById("play-music");
-    const pauseButton = document.getElementById("pause-music");
+  //Close welcome modal
+  const welcomeButton = document.getElementById("welcome-button");
 
-    playButton.addEventListener("click", function(e) {
-        e.preventDefault(); 
-        playAudio(); 
-    })
+  welcomeButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeWelcomeModal();
+  });
 
-    pauseButton.addEventListener("click", function (e) {
+  function closeWelcomeModal() {
+    const welcomeDiv = document.querySelector(".welcome-modal-container");
+    welcomeDiv.setAttribute("id", "close-welcome");
+    welcomeButton.removeEventListener("click", function (e) {
       e.preventDefault();
-      pauseAudio();
+      closeWelcomeModal();
     });
+  }
 
-    function playAudio() {
-      music.play();
-    }
+  //Close story modal
+  const storyButton = document.getElementById("story-button");
 
-    function pauseAudio() {
-      music.pause();
-    } 
+  storyButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeStoryModal();
+  });
+
+  function closeStoryModal() {
+    const storyDiv = document.querySelector(".story-modal-container");
+    storyDiv.setAttribute("id", "close-story");
+    storyButton.removeEventListener("click", function (e) {
+      e.preventDefault();
+      closeStoryModal();
+    });
+  }
+
+
+  //Music buttons
+  const music = document.getElementById("game-music");
+  const playButton = document.getElementById("play-music");
+  const pauseButton = document.getElementById("pause-music");
+
+  playButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    playAudio();
+  });
+
+  pauseButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    pauseAudio();
+  });
+
+  function playAudio() {
+    music.play();
+  }
+
+  function pauseAudio() {
+    music.pause();
+  }
 })
 
