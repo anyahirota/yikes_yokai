@@ -75,3 +75,9 @@
     top: -50px; 
     right: -20px; 
 }
+
+.house {
+    height: 100px;
+    width: auto;
+    margin: 0px 100px; 
+}

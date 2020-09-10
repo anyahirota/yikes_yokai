@@ -11,5 +11,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const game = new Game; 
     game.animate(ctx, canvas);
+
+    const music = document.getElementById("game-music");
+    const playButton = document.getElementById("play-music");
+    const pauseButton = document.getElementById("pause-music");
+
+    playButton.addEventListener("click", function(e) {
+        e.preventDefault(); 
+        playAudio(); 
+    })
+
+    pauseButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      pauseAudio();
+    });
+
+    function playAudio() {
+      music.play();
+    }
+
+    function pauseAudio() {
+      music.pause();
+    } 
 })
 
