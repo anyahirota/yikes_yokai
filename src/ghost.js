@@ -5,7 +5,7 @@ class Ghost extends Sprite {
     super(); 
     this.ghost = {
       id: id, 
-      x: 700,
+      x: 900,
       y: this.getRandomY(50, 450),
       width: 1408,
       height: 1161,

@@ -1,6 +1,23 @@
+.game {
+    width: 900px;
+    height: 600px;
+    border: 5px solid black;
+    background-image: url("print1.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #game-canvas {
+
     width: 800px;
     height: 500px; 
-    border: 1px solid black; 
-    /* background-color: #3e7dc1;  */
+    border: 5px solid black; 
+    background-image: url("papertexture.png");
+    background-position: center;
+    background-size: cover;
+    background-color: white; 
 }
+
