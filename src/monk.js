@@ -16,7 +16,7 @@ class Monk extends Sprite{
             moving: false,
         };
         this.monkSprite = new Image();
-        this.monkSprite.src = "monk.png";
+        this.monkSprite.src = "images/monk.png";
         this.beams = []; 
   }
 
@@ -48,6 +48,9 @@ class Monk extends Sprite{
 
   listenForMovement() {
     window.addEventListener("keydown", (e) => {
+        if (e.keyCode === 38 || e.keyCode === 40) {
+            e.preventDefault()
+        }
         this.keys[e.keyCode] = true;
         if (e.keyCode === 32) {
             this.beams.push(new Beam(this.monk.x + (this.monk.width / 55), this.monk.y + (this.monk.height / 55)/2)); 
@@ -56,6 +59,9 @@ class Monk extends Sprite{
     });
 
     window.addEventListener("keyup",  (e) => {
+         if (e.keyCode === 38 || e.keyCode === 40) {
+           e.preventDefault();
+         }
         delete this.keys[e.keyCode];
         if (e.keyCode === 32) {
             this.monk.frameX = 3257.5;

@@ -1,0 +1,77 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+}
+
+.game {
+    width: 900px;
+    height: 600px;
+    border: 5px solid black;
+    background-image: url("../images/waves.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-canvas {
+    width: 800px;
+    height: 500px; 
+    border: 5px solid black; 
+    background-image: url("../images/papertexture.png");
+    background-position: center;
+    background-size: cover;
+    background-color: white; 
+}
+
+@font-face {
+  font-family: mikiyu;
+  src: url("../mikiyu-mokomori-kuro.ttf");
+}
+
+.title-bar {
+    height: 170px; 
+    font-family: mikiyu;
+    font-size: 60px;
+    margin: 40px 0px 40px 0px; 
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/waves.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    padding: 20px; 
+    border: 5px solid black;
+    position: relative;
+    background-color: white; 
+}
+
+.cute_ghost {
+    height: 125px;
+    width: auto;
+    position: absolute;
+    top: -60px; 
+    left: -100px; 
+}
+
+.cute_ghost_2 {
+    height: 90px;
+    width: auto;
+    position: absolute;
+    top: 15px; 
+    right: -60px; 
+}
+
+.cute_ghost_3 {
+    height: 60px;
+    width: auto;
+    position: absolute;
+    top: -50px; 
+    right: -20px; 
+}
