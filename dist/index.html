@@ -10,7 +10,7 @@
     </head>
     <body>
 
-        <div class="welcome-modal-container">
+        <div class="welcome-modal-container" >
             <div class="welcome-modal-background"></div>
             <div class="welcome-form-container" >
                 <div class="welcome-form-border">
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="story-modal-container" >
+        <div class="story-modal-container">
             <div class="welcome-modal-background" id="story-background-z"></div>
             <div class="welcome-form-container" id="story-form-z">
                 <div class="story-form-border">
@@ -55,10 +55,31 @@
             <div class="welcome-form-container" id="inst-form-z">
                 <div class="instructions-form-border">
                     <div class="instructions-form">
-                        <h1>Instructions</h1>
-                        <h2>Moving</h2>
-                        <h2>Shooting</h2>
+                        <h1 class="instructions-title">Instructions</h1>
+                        <p class="instructions-description">Move the monk up and down in front of the village. 
+                            Vanquish a yokai by shooting it with a beam of light. 
+                            If a yokai reaches the village, you lose.</p>
+                        <div class="keyboard-diagram">
+                            <div class="keyboard-diagram-top">
+                                <img class="inst-keyboard" src="images/keyboard1.png" alt="">
+                                <p>Arrow Keys</p>
+                            </div>
+                            <div class="keyboard-diagram-bottom">
+                                <p>Space Bar</p>
+                            </div>
+                            <div class="pointer1"></div>
+                            <div class="pointer2"></div>
+                        </div>
+                        <div class="moving-inst">
+                            <h2>Moving:</h2>
+                            <p>Move the monk up and down using the arrow keys.</p>
+                        </div>
+                        <div class="moving-inst">
+                            <h2>Shooting:</h2>
+                            <p>Shoot a beam of light by pressing the space bar.</p>
+                        </div>
                         <button id="instructions-button" class="welcome-next-button">Enter</button>
+
                     </div>
                 </div>
             </div>

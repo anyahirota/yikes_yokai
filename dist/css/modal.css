@@ -248,5 +248,90 @@
   padding: 0px 10px;
 }
 
+.instructions-title {
+  font-size: 25px;
+  margin: 20px 0px 10px 0px; 
+}
+
+.keyboard-diagram {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.keyboard-diagram-top {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.keyboard-diagram-top > p {
+  font-size: 12px; 
+  padding: 70px 0px 0px 15px; 
+}
+
+.inst-keyboard {
+  height: 90px; 
+  width: auto;
+}
+
+.keyboard-diagram-bottom {
+  padding: 15px 0px 0px 65px; 
+  font-size: 12px; 
+}
+
+.pointer1 {
+  position: absolute;
+  top: 75px; 
+  left: 235px; 
+  width: 18px; 
+  height: 18px; 
+  border-top: 5px solid #b21752; 
+}
+
+.pointer2 {
+  position: absolute;
+  top: 85px; 
+  left: 100px; 
+  width: 18px; 
+  height: 18px; 
+  border-left: 5px solid #b21752; 
+}
+
+.instructions-form > h2 {
+  font-size: 20px;
+} 
+
+.instructions-form > p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.instructions-description {
+  margin-bottom: 15px; 
+}
+
+.moving-inst {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.moving-inst > h2{
+  font-size: 20px;
+  width: 30%;  
+  padding-left: 15px;
+}
+
+.moving-inst > p{
+  font-size: 14px;
+  line-height: 20px;
+  width: 70%;  
+}
+
+#close-instructions {
+  display: none;
+}
+
+
 
 

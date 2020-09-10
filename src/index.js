@@ -46,6 +46,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  //Close instruction modal
+  const instButton = document.getElementById("instructions-button");
+
+  instButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeInstModal();
+  });
+
+  function closeInstModal() {
+    const instructionsDiv = document.querySelector(
+      ".instructions-modal-container"
+    );
+    instructionsDiv.setAttribute("id", "close-instructions");
+    instButton.removeEventListener("click", function (e) {
+      e.preventDefault();
+      closeInstModal();
+    });
+  }
+
+
 
   //Music buttons
   const music = document.getElementById("game-music");
