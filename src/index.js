@@ -36,6 +36,18 @@ document.addEventListener("DOMContentLoaded", function() {
     unpauseGame(game);
   }
 
+  //restartGame
+  const playAgainButton = document.getElementById("play-again-button");
+  
+  playAgainButton.addEventListener("click", function(e) {
+    e.preventDefault(); 
+    const pauseGameButton = document.querySelector(".pause-game-button");
+    pauseGameButton.setAttribute("id", "clear-game-pause");
+    const gameOverPopUp = document.querySelector(".game-over-popup");
+    gameOverPopUp.setAttribute("id", "clear-game-over-popup");
+    startGame(); 
+  })
+
   //pauseGame
   
   function pauseGame(game) {

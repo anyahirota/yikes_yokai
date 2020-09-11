@@ -32,9 +32,11 @@ class Game {
 
     spawnGhosts() {
         setInterval(() => {
-            if (this.score < 500) {
-                const id = Math.random()
-                this.ghosts[id] = new Ghost(id); 
+            if (!this.paused) {
+                if (this.score < 500) {
+                    const id = Math.random()
+                    this.ghosts[id] = new Ghost(id); 
+                }
             }
         }, 6000)
     }
@@ -109,15 +111,18 @@ class Game {
         const ghosts = Object.values(this.ghosts);
         for (let i = 0; i < ghosts.length; i++) {
            let ghost = ghosts[i].ghost;
-           if (ghost.x < 70) {
-               this.loseGame(); 
-           } 
+           if(!this.paused) {
+               if (ghost.x < 70) {
+                   this.loseGame(); 
+               } 
+           }
         }
     }
 
     loseGame() {
         this.paused = true; 
-        console.log("you lose"); 
+        const gameOverPopUp = document.querySelector(".game-over-popup");
+        gameOverPopUp.removeAttribute("id", "clear-game-over-popup"); 
     }
 
     winGame() {

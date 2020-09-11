@@ -49,3 +49,7 @@
   margin: 5px 0px; 
 }
 
+#clear-game-over-popup {
+  display: none; 
+}
+
