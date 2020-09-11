@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link href="css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/modal.css">
@@ -103,9 +104,22 @@
             <div class="game">
                 <canvas id="game-canvas"></canvas>
                 <script src="main.js"></script>
+                <button id="clear-game-pause" class="pause-game-button game-button-styles"><i class="far fa-pause-circle"></i></button>
+                <button id="clear-game-play" class="play-game-button game-button-styles"><i class="far fa-play-circle"></i></button>
+                <button class="game-start-button">Start!</button>
             </div>
+        </div>
 
-            <button class="game-start-button">Start!</button>
+        <div class="game-over-popup" id="clear-game-over-popup">
+            <div class="game-over-form">
+                
+            </div>
+        </div>
+
+        <div class="winner-popup">
+            <div class="winner-form">
+            
+            </div>
         </div>
 
 

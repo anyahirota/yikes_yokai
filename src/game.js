@@ -1,34 +1,41 @@
 import Monk from "./monk"; 
 import Ghost from "./ghost"; 
+import House from "./house"; 
 
 class Game {
     constructor() {
         this.monk = new Monk; 
         this.ghosts = {};
-        this.score = 0;  
+        this.village = this.createVillage(); 
+        this.score = 0;   
+        this.paused = false;      
     }
 
     animate(ctx, canvas) {
         this.monk.listenForMovement(); 
-        this.spawnGhosts(); 
+        this.spawnGhosts();  
         setInterval(() => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); 
-            this.monk.drawMonkSprite(ctx); 
-            this.monk.moveMonk(); 
-            this.animateGhosts(ctx, canvas); 
-            this.checkBeamCollision();  
-            // if (this.checkBeamCollision()) {
-            //     this.score += 1; 
-            //     console.log(this.score); 
-            // }
-            
+            if (!this.paused) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); 
+                ctx.font = "50px mikiyu";
+                ctx.fillStyle = "black"; 
+                ctx.fillText(this.score, 400, 50); 
+                this.drawVillage(ctx);
+                this.monk.drawMonkSprite(ctx); 
+                this.monk.moveMonk(); 
+                this.animateGhosts(ctx, canvas); 
+                this.checkBeamCollision();  
+                this.checkGhostCollision(); 
+            }
         }, 20) 
     }
 
     spawnGhosts() {
         setInterval(() => {
-            const id = Math.random()
-            this.ghosts[id] = new Ghost(id); 
+            if (this.score < 500) {
+                const id = Math.random()
+                this.ghosts[id] = new Ghost(id); 
+            }
         }, 6000)
     }
 
@@ -37,6 +44,23 @@ class Game {
         for (let i = 0; i < ghosts.length; i++) {
             ghosts[i].drawGhostSprite(ctx);
             ghosts[i].update(canvas);
+        }
+    }
+
+    createVillage() {
+        let y = 12;
+        const height = 67.3; 
+        const village = []; 
+        for (let i = 0; i < 7; i++) {
+            village.push(new House(y)); 
+            y += height; 
+        }
+        return village; 
+    }
+
+    drawVillage(ctx) {
+        for (let i = 0; i < this.village.length; i++) {
+          this.village[i].drawHouseSprite(ctx);
         }
     }
 
@@ -79,6 +103,25 @@ class Game {
         delete this.ghosts[ghost.id];
         this.score += 1
         console.log(this.score);
+    }
+
+    checkGhostCollision() {
+        const ghosts = Object.values(this.ghosts);
+        for (let i = 0; i < ghosts.length; i++) {
+           let ghost = ghosts[i].ghost;
+           if (ghost.x < 70) {
+               this.loseGame(); 
+           } 
+        }
+    }
+
+    loseGame() {
+        this.paused = true; 
+        console.log("you lose"); 
+    }
+
+    winGame() {
+        //win if score reaches 500
     }
     
 }

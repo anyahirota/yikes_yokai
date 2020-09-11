@@ -30,9 +30,37 @@ document.addEventListener("DOMContentLoaded", function() {
   function startGame() {
     const game = new Game;
     game.animate(ctx, canvas);
+    const pauseGameButton = document.querySelector(".pause-game-button");
+    pauseGameButton.removeAttribute("id", "clear-game-pause");
+    pauseGame(game); 
+    unpauseGame(game);
   }
-  
 
+  //pauseGame
+  
+  function pauseGame(game) {
+    const pauseGameButton = document.querySelector(".pause-game-button");
+    const playGameButton = document.querySelector(".play-game-button");
+    pauseGameButton.addEventListener("click", function(e) {
+      e.preventDefault(); 
+      game.paused = true; 
+      pauseGameButton.setAttribute("id", "clear-game-pause");
+      playGameButton.removeAttribute("id", "clear-game-play");
+    })
+  }
+
+  //unpause Game
+
+  function unpauseGame(game) {
+    const playGameButton = document.querySelector(".play-game-button");
+    const pauseGameButton = document.querySelector(".pause-game-button");
+    playGameButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      game.paused = false;
+      playGameButton.setAttribute("id", "clear-game-play");
+      pauseGameButton.removeAttribute("id", "clear-game-pause");
+    });
+  }
 
   //Close welcome modal
   const welcomeButton = document.getElementById("welcome-button");

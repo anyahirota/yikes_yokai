@@ -10,6 +10,7 @@ body {
 }
 
 .game {
+    position: relative;
     width: 900px;
     height: 600px;
     border: 5px solid black;
@@ -107,4 +108,19 @@ body {
 
 #close-start-button {
     display: none; 
+}
+
+.game-button-styles {
+    position: absolute;
+    top: 55px; 
+    right: 55px;
+    font-size: 25px;   
+}
+
+#clear-game-pause {
+    display: none;
+}
+
+#clear-game-play {
+    display: none;
 }
