@@ -41,7 +41,7 @@ body {
     height: 170px; 
     font-family: mikiyu;
     font-size: 60px;
-    margin: 50px 0px 40px 0px; 
+    margin-top: 50px; 
     border-top: 5px solid black;
     border-bottom: 5px solid black;
     display: flex;
@@ -123,4 +123,38 @@ body {
 
 #clear-game-play {
     display: none;
+}
+
+.clear-music-button {
+    display: none; 
+}
+
+.music-container{
+    display: flex;
+    justify-content: center;
+}
+
+.music {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px; 
+    margin: 20px 0px; 
+    width: 800px; 
+    position: relative;  
+}
+
+#play-music {
+    position: absolute; 
+    left:810px; 
+    top:2px; 
+}
+
+#pause-music {
+    position: absolute; 
+    left:810px; 
+    top:2px; 
+}
+
+.music-button:hover {
+    font-size: 33px;
 }

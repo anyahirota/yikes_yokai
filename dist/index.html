@@ -96,9 +96,14 @@
             <img class="house" src="images/house.png" alt="">
         </header>
 
-        <audio id="game-music" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/Adorable+Japanese+Music+Traditional+Koto%2C+Shamisen%2C+Bamboo+Flute+Music!.mp3"></audio>
-        <button id="play-music">play</button>
-        <button id="pause-music">pause</button>
+        <div class="music-container">
+            <div class="music">
+                <audio id="game-music" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/Adorable+Japanese+Music+Traditional+Koto%2C+Shamisen%2C+Bamboo+Flute+Music!.mp3"></audio>
+                <p>Music:</p>
+                <button id="play-music" class="music-button-styles"><i class="fas fa-volume-up"></i></button>
+                <button id="pause-music" class="clear-music-button music-button-styles"><i class="fas fa-volume-mute"></i></button>
+            </div>
+        </div>
 
         <div class="game-container">
             <div class="game">

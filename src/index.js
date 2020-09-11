@@ -125,11 +125,15 @@ document.addEventListener("DOMContentLoaded", function() {
   playButton.addEventListener("click", function (e) {
     e.preventDefault();
     playAudio();
+    playButton.setAttribute("class", "clear-music-button");
+    pauseButton.removeAttribute("class", "clear-music-button"); 
   });
 
   pauseButton.addEventListener("click", function (e) {
     e.preventDefault();
     pauseAudio();
+    pauseButton.setAttribute("class", "clear-music-button");
+    playButton.removeAttribute("class", "clear-music-button");
   });
 
   function playAudio() {
