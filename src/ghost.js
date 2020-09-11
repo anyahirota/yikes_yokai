@@ -15,11 +15,11 @@ class Ghost extends Sprite {
       // moving: false,
     };
     this.ghostImgs = [
-      "images/ghost_cartoon_1.png",
-      "images/ghost_cartoon_2.png",
-      "images/ghost_cartoon_3.png",
-      "images/ghost_cartoon_4.png",
-      "images/ghost_cartoon_5.png",
+      "dist/images/ghost_cartoon_1.png",
+      "dist/images/ghost_cartoon_2.png",
+      "dist/images/ghost_cartoon_3.png",
+      "dist/images/ghost_cartoon_4.png",
+      "dist/images/ghost_cartoon_5.png",
     ];
     this.ghostSprite = new Image();
     this.ghostSprite.src = this.ghostImgs[

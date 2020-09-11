@@ -16,7 +16,7 @@ class Monk extends Sprite{
             moving: false,
         };
         this.monkSprite = new Image();
-        this.monkSprite.src = "images/monk.png";
+        this.monkSprite.src = "dist/images/monk.png";
         this.beams = []; 
   }
 

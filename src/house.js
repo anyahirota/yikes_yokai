@@ -14,7 +14,7 @@ class House extends Sprite {
       moving: false,
     };
     this.houseSprite = new Image(); 
-    this.houseSprite.src = "images/house.png"; 
+    this.houseSprite.src = "dist/images/house.png"; 
   }
 
   drawHouseSprite(ctx) {
