@@ -9,8 +9,30 @@ document.addEventListener("DOMContentLoaded", function() {
   canvas.width = 800;
   canvas.height = 500;
 
-  // const game = new Game;
-  // game.animate(ctx, canvas);
+  //Start Game
+  const startGameButton = document.querySelector(".game-start-button"); 
+
+  startGameButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    closeStartGameButton();  
+    startGame(); 
+  })
+
+  function closeStartGameButton() {
+    startGameButton.setAttribute("id", "close-start-button");
+    startGameButton.removeEventListener("click", function(e) {
+      e.preventDefault(); 
+      closeStartGameButton();
+      startGame(); 
+    })
+  }
+
+  function startGame() {
+    const game = new Game;
+    game.animate(ctx, canvas);
+  }
+  
+
 
   //Close welcome modal
   const welcomeButton = document.getElementById("welcome-button");

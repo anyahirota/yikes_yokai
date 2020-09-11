@@ -15,7 +15,7 @@ class Game {
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
             this.monk.drawMonkSprite(ctx); 
             this.monk.moveMonk(); 
-            // this.animateGhosts(ctx, canvas); 
+            this.animateGhosts(ctx, canvas); 
             this.checkBeamCollision();  
             // if (this.checkBeamCollision()) {
             //     this.score += 1; 
