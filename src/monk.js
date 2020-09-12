@@ -12,7 +12,7 @@ class Monk extends Sprite{
             height: 4955.5,
             frameX: 3257.5,
             frameY: 0,
-            speed: 4,
+            speed: 6,
             moving: false,
         };
         this.monkSprite = new Image();

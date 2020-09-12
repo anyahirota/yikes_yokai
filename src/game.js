@@ -31,14 +31,34 @@ class Game {
     }
 
     spawnGhosts() {
+        let addedSpeed = 1.0;
+        let numGhosts = 3; 
+        const getRandomGhost = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
         setInterval(() => {
             if (!this.paused) {
                 if (this.score < 500) {
-                    const id = Math.random()
-                    this.ghosts[id] = new Ghost(id); 
+                    const randGhostNum = getRandomGhost(1, numGhosts) 
+                    for (let i = 0; i < randGhostNum; i++) {
+                        const id = Math.random()
+                        this.ghosts[id] = new Ghost(id, addedSpeed); 
+                    }
                 }
             }
-        }, 6000)
+        }, 3000)
+        setInterval(() => {
+            if (!this.paused) {
+                if (addedSpeed < 7.0) addedSpeed += 0.2; 
+            }
+        }, 15000)
+
+        setInterval(() => {
+            if (!this.paused) {
+              if (numGhosts < 5) numGhosts += 1;
+            }
+        }, 30000)
     }
 
     animateGhosts(ctx, canvas) {

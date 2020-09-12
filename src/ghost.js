@@ -1,17 +1,17 @@
 import Sprite from "./sprite"; 
 
 class Ghost extends Sprite {
-  constructor(id) {
-    super(); 
+  constructor(id, addedSpeed) {
+    super();
     this.ghost = {
-      id: id, 
+      id: id,
       x: 900,
       y: this.getRandomY(50, 450),
       width: 1408,
       height: 1161,
       frameX: 0,
       frameY: 0,
-      speed: Math.random() * 1.5 + 1.0,
+      speed: Math.random() * 1.5 + addedSpeed,
       // moving: false,
     };
     this.ghostImgs = [
@@ -41,19 +41,18 @@ class Ghost extends Sprite {
       this.ghost.height,
       this.ghost.x,
       this.ghost.y,
-      this.ghost.width /20,
-      this.ghost.height /20
-    )
+      this.ghost.width / 20,
+      this.ghost.height / 20
+    );
   }
 
   update(canvas) {
-    if (this.ghost.x > 0 - (this.ghost.width/20)) {
-      this.ghost.x -= this.ghost.speed; 
+    if (this.ghost.x > 0 - this.ghost.width / 20) {
+      this.ghost.x -= this.ghost.speed;
     } else {
-      this.ghost.x = canvas.width + (this.ghost.width / 20)
+      this.ghost.x = canvas.width + this.ghost.width / 20;
     }
   }
-  
 }
 
 export default Ghost; 
