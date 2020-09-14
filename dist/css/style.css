@@ -160,4 +160,34 @@ body {
     
 }
 
+.footer {
+    margin-top: 50px; 
+    border-top: 5px solid black;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+
+.footer > p {
+    font-size: 14px; 
+    margin-bottom: 10px;
+}
+
+.social-links {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-app-description-yy {
+    font-size: 12px; 
+    margin-bottom: 10px;
+}
+
+.footer-app-description {
+    font-size: 12px;
+    line-height: 20px;
+}

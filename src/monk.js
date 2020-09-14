@@ -53,6 +53,7 @@ class Monk extends Sprite{
         }
         this.keys[e.keyCode] = true;
         if (e.keyCode === 32) {
+            e.preventDefault();
             this.beams.push(new Beam(this.monk.x + (this.monk.width / 55), this.monk.y + (this.monk.height / 55)/2)); 
             this.monk.frameX = 0;
         }
@@ -64,6 +65,7 @@ class Monk extends Sprite{
          }
         delete this.keys[e.keyCode];
         if (e.keyCode === 32) {
+            e.preventDefault();
             this.monk.frameX = 3257.5;
         }
     });

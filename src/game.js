@@ -50,9 +50,9 @@ class Game {
         }, 3000)
         setInterval(() => {
             if (!this.paused) {
-                if (addedSpeed < 7.0) addedSpeed += 0.2; 
+                if (addedSpeed < 7.0) addedSpeed += 0.5; 
             }
-        }, 15000)
+        }, 7000)
 
         setInterval(() => {
             if (!this.paused) {
