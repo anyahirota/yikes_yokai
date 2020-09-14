@@ -191,3 +191,44 @@ body {
     font-size: 12px;
     line-height: 20px;
 }
+
+.main-game-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-instructions-container {
+    padding: 15px 30px; 
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-image: url("../images/floral_pattern.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.main-instructions {
+    background-color: white;
+    border: 5px solid black; 
+    padding: 15px;
+    text-align: center;
+}
+
+.main-instructions > h1 {
+    font-size: 30px; 
+    margin-bottom: 15px;
+}
+
+.main-instructions > h2 {
+    font-size: 20px; 
+    margin-bottom: 5px;
+}
+
+.main-instructions > p {
+    font-size: 15px; 
+    margin-bottom: 12px;
+} 

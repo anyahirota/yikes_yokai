@@ -105,24 +105,35 @@
                 <button id="pause-music" class="clear-music-button music-button-styles"><i class="fas fa-volume-mute"></i></button>
             </div>
         </div>
-
-        <div class="game-container">
-            <div class="game">
-                <canvas id="game-canvas"></canvas>
-                <script src="dist/main.js"></script>
-                <button id="clear-game-pause" class="pause-game-button game-button-styles"><i class="far fa-pause-circle"></i></button>
-                <button id="clear-game-play" class="play-game-button game-button-styles"><i class="far fa-play-circle"></i></button>
-                <button class="game-start-button">Start!</button>
+        <div class="main-game-area"> 
+            <div class="game-container">
+                <div class="game">
+                    <canvas id="game-canvas"></canvas>
+                    <script src="dist/main.js"></script>
+                    <button id="clear-game-pause" class="pause-game-button game-button-styles"><i
+                            class="far fa-pause-circle"></i></button>
+                    <button id="clear-game-play" class="play-game-button game-button-styles"><i
+                            class="far fa-play-circle"></i></button>
+                    <button class="game-start-button">Start!</button>
+                </div>
+                <div class="game-over-popup" id="clear-game-over-popup">
+                    <div class="game-over-form">
+                        <h1>Game Over</h1>
+                        <img src="dist/images/ghost_cartoon_4.png" alt="">
+                        <button id="play-again-button">Play Again!</button>
+                    </div>
+                </div>
             </div>
-            <div class="game-over-popup" id="clear-game-over-popup">
-                <div class="game-over-form">
-                    <h1>Game Over</h1>
-                    <img src="dist/images/ghost_cartoon_4.png" alt="">
-                    <button id="play-again-button">Play Again!</button>
+            <div class="main-instructions-container">
+                <div class="main-instructions">
+                    <h1>Instructions</h1>
+                    <h2>Moving:</h2>
+                    <p>Move the monk up and down using the arrow keys.</p>
+                    <h2>Shooting:</h2>
+                    <p>Shoot a beam of light by pressing the space bar.</p>
                 </div>
             </div>
         </div>
-
 
         <div class="winner-popup">
             <div class="winner-form">
