@@ -98,6 +98,7 @@ class Game {
     }
 
     collision(ghost, beam) {
+        if (ghost === undefined || beam === undefined) {return}; 
         const distX = Math.abs(beam.x - ghost.x - (ghost.width / 20) / 2);
         const distY = Math.abs(beam.y - ghost.y - (ghost.height / 20) / 2);
         if (distX > ((ghost.width / 20) / 2 + beam.radius)) { return false; }
