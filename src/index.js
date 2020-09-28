@@ -46,6 +46,18 @@ document.addEventListener("DOMContentLoaded", function() {
     startGame(); 
   })
 
+  //restartGame when win
+   const playAgainWinnerButton = document.getElementById("play-again-winner-button");
+
+   playAgainWinnerButton.addEventListener("click", function (e) {
+     e.preventDefault();
+     const pauseGameButton = document.querySelector(".pause-game-button");
+     pauseGameButton.setAttribute("id", "clear-game-pause");
+     const gameOverPopUp = document.querySelector(".winner-popup");
+     gameOverPopUp.setAttribute("id", "clear-winner-popup");
+     startGame();
+   });
+
   //pauseGame
   
   function pauseGame(game) {

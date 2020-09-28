@@ -53,3 +53,12 @@
   display: none; 
 }
 
+.winner-popup {
+  background-image: url("../images/print1.png");
+}
+
+#clear-winner-popup {
+  display: none;
+}
+
+
