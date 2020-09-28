@@ -8,7 +8,9 @@ class Game {
         this.ghosts = {};
         this.village = this.createVillage(); 
         this.score = 0;   
-        this.paused = false;      
+        this.level = 1
+        this.paused = false;   
+        this.hours = 12;    
     }
 
     animate(ctx, canvas) {
@@ -17,9 +19,14 @@ class Game {
         setInterval(() => {
             if (!this.paused) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height); 
-                ctx.font = "50px mikiyu";
-                ctx.fillStyle = "black"; 
-                ctx.fillText(this.score, 400, 50); 
+                ctx.font = "30px mikiyu";
+                ctx.fillStyle = "black";  
+                ctx.fillText(`Hits: ${this.score}`, 350, 40); 
+                ctx.fillText(`Beams: ${this.monk.beamCount}`, 120, 40); 
+                ctx.fillText(`Level: ${this.level}`, 550, 40); 
+                ctx.fillText(`Hours Left: ${this.hours}`, 120, 475); 
+                ctx.fillText(`Beam Boosts: ${this.monk.boosts}`, 475, 475); 
+
                 this.drawVillage(ctx);
                 this.monk.drawMonkSprite(ctx); 
                 this.monk.moveMonk(); 
@@ -50,9 +57,12 @@ class Game {
         }, 3000)
         setInterval(() => {
             if (!this.paused) {
-                if (addedSpeed < 7.0) addedSpeed += 0.5; 
+                if (addedSpeed < 7.0) addedSpeed += 1.5; 
+                this.level += 1; 
+                this.monk.boosts += 1; 
+                this.hours -= 0.25; 
             }
-        }, 7000)
+        }, 15000)
 
         setInterval(() => {
             if (!this.paused) {
@@ -125,7 +135,7 @@ class Game {
         this.monk.beams.splice(this.monk.beams.indexOf(beam), 1); 
         delete this.ghosts[ghost.id];
         this.score += 1
-        console.log(this.score);
+        this.monk.beamCount += 1; 
     }
 
     checkGhostCollision() {

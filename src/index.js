@@ -1,5 +1,3 @@
-console.log("Webpack is working!");
-import Monk from "./monk"; 
 import Game from "./game"; 
 
 

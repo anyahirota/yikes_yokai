@@ -18,6 +18,8 @@ class Monk extends Sprite{
         this.monkSprite = new Image();
         this.monkSprite.src = "dist/images/monk.png";
         this.beams = []; 
+        this.beamCount = 6; 
+        this.boosts = 0; 
   }
 
   drawMonkSprite(ctx) {
@@ -54,9 +56,32 @@ class Monk extends Sprite{
         this.keys[e.keyCode] = true;
         if (e.keyCode === 32) {
             e.preventDefault();
-            this.beams.push(new Beam(this.monk.x + (this.monk.width / 55), this.monk.y + (this.monk.height / 55)/2)); 
-            this.monk.frameX = 0;
+            if (this.beamCount > 0) {
+                this.beams.push(
+                  new Beam(
+                    this.monk.x + this.monk.width / 55,
+                    this.monk.y + this.monk.height / 55 / 2
+                  )
+                );
+                this.monk.frameX = 0;    
+            }
         }
+        if (e.keyCode === 37) {
+            e.preventDefault();
+            this.keys[37] = "powerup";
+        }
+
+        if (e.keyCode === 39) {
+            e.preventDefault();
+            this.keys[39] = "powerup";
+        }
+
+        if (this.keys[39] === "powerup" && this.keys[37] === "powerup" && this.boosts > 0) {
+            this.beamCount = 6;
+            this.boosts -= 1;
+        }
+
+        
     });
 
     window.addEventListener("keyup",  (e) => {
@@ -66,7 +91,10 @@ class Monk extends Sprite{
         delete this.keys[e.keyCode];
         if (e.keyCode === 32) {
             e.preventDefault();
-            this.monk.frameX = 3257.5;
+            if (this.beamCount > 0) {
+                this.monk.frameX = 3257.5;
+                this.beamCount -= 1; 
+            }
         }
     });
 
