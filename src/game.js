@@ -24,8 +24,8 @@ class Game {
                 ctx.fillText(`Hits: ${this.score}`, 350, 40); 
                 ctx.fillText(`Beams: ${this.monk.beamCount}`, 120, 40); 
                 ctx.fillText(`Level: ${this.level}`, 550, 40); 
-                ctx.fillText(`Hours Left: ${this.hours}`, 120, 475); 
-                ctx.fillText(`Beam Boosts: ${this.monk.boosts}`, 475, 475); 
+                ctx.fillText(`Hours Left: ${this.hours}`, 120, 480); 
+                ctx.fillText(`Beam Boosts: ${this.monk.boosts}`, 475, 480); 
 
                 this.drawVillage(ctx);
                 this.monk.drawMonkSprite(ctx); 
