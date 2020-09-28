@@ -33,6 +33,10 @@ class Game {
                 this.animateGhosts(ctx, canvas); 
                 this.checkBeamCollision();  
                 this.checkGhostCollision(); 
+
+                if (this.hours === 0) {
+                    this.winGame(); 
+                }
             }
         }, 20) 
     }
@@ -157,7 +161,8 @@ class Game {
     }
 
     winGame() {
-        //win if score reaches 500
+        this.paused = true;
+
     }
     
 }

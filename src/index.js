@@ -125,6 +125,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  //Close instructions2 beams modal
+  const beamsButton = document.getElementById("beams-button");
+
+  beamsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeBeamsModal();
+  })
+
+  function closeBeamsModal() {
+    const instructionsDiv = document.querySelector(
+      ".instructions2-modal-container"
+    );
+    instructionsDiv.setAttribute("id", "close-instructions2");
+    beamsButton.removeEventListener("click", function (e) {
+      e.preventDefault();
+      closeBeamsModal();
+    });
+  }
 
 
   //Music buttons

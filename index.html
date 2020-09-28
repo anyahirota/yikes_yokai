@@ -59,9 +59,12 @@
                 <div class="instructions-form-border">
                     <div class="instructions-form">
                         <h1 class="instructions-title">Instructions</h1>
+                        <p>Survive 12 hours of night!</p>
                         <p class="instructions-description">Move the monk up and down in front of the village. 
                             Vanquish a yokai by shooting it with a beam of light. 
-                            If a yokai reaches the village, you lose.</p>
+                            If a yokai reaches the village, you lose. 
+                            If the "hours left" reaches 0, you have survived the night and WIN!
+                        </p>
                         <div class="keyboard-diagram">
                             <div class="keyboard-diagram-top">
                                 <img class="inst-keyboard" src="dist/images/keyboard1.png" alt="">
@@ -81,8 +84,38 @@
                             <h2>Shooting:</h2>
                             <p>Shoot a beam of light by pressing the space bar.</p>
                         </div>
-                        <button id="instructions-button" class="welcome-next-button">Enter</button>
+                        <button id="instructions-button" class="welcome-next-button">Next</button>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions2-modal-container">
+            <div class="welcome-modal-background" id="inst2-background-z"></div>
+            <div class="welcome-form-container" id="inst2-form-z">
+                <div class="instructions2-form-border">
+                    <div class="instructions2-form">
+                        <h1 class="instructions-title">Beams</h1>
+                        <h2 class="instructions-title2">You can only shoot a maximum of 6 beams at a time.</h2>
+                        <p class="instructions2-description">
+                            Every time you shoot a beam, your beam count decreases by 1. 
+                            Every time a beam hits a yokai, the monk absorbs their spirit energy 
+                            and your beam count increases by 1. <br />
+                            Every level or 15 game minutes (approx. 15 seconds), you gain a beam boost. 
+                            Use a beam boost by simultaneously pressing the left and right arrow keys 
+                            to return your beam count to 6. 
+                        </p>
+                        <div class="arrow-keys-container">
+                            <img class="arrow-keys" src="dist/images/arrow_keys.png" alt="">
+                        </div>
+                        <div class="moving-inst">
+                            <h2>Beam boost:</h2>
+                            <p>Simultaneously press the left and right arrow keys
+                            to return your beam count to 6</p>
+                        </div>
+                        <button id="beams-button" class="welcome-next-button">Enter</button>
+        
                     </div>
                 </div>
             </div>
@@ -132,6 +165,9 @@
                     <p>Move the monk up and down using the arrow keys.</p>
                     <h2>Shooting:</h2>
                     <p>Shoot a beam of light by pressing the space bar.</p>
+                    <h2>Beam Boost:</h2>
+                    <p>Simultaneously press the left and right arrow keys
+                    to return your beam count to 6.</p>
                 </div>
             </div>
         </div>

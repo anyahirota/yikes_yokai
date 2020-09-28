@@ -12,7 +12,7 @@
 }
 
 .welcome-modal-background {
-  z-index: 10;
+  z-index: 20;
   position: fixed;
   background-image: url("../images/waves.png");
   background-position: center;
@@ -24,7 +24,7 @@
 }
 
 .welcome-form-container {
-  z-index: 11;
+  z-index: 21;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -33,10 +33,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  overflow: auto;
 }
 
 .welcome-form-border {
-  z-index: 12; 
+  z-index: 22; 
   display: flex;
   justify-content: center;
   background-image: url("../images/print1.png");
@@ -52,7 +54,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 12;
+  z-index: 22;
   width: 500px;
   height: 50%; 
   background-color: white;
@@ -130,15 +132,15 @@
 }
 
 #story-background-z {
-  z-index: 7;
+  z-index: 17;
 }
 
 #story-form-z {
-  z-index: 8;
+  z-index: 18;
 }
 
 .story-form-border {
-  z-index: 9; 
+  z-index: 19; 
   display: flex;
   justify-content: center;
   background-image: url("../images/red_pattern.png");
@@ -154,7 +156,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 12;
+  z-index: 19;
   width: 500px;
   height: 50%; 
   background-color: white;
@@ -214,15 +216,15 @@
 }
 
 #inst-background-z {
-  z-index: 4;
+  z-index: 14;
 }
 
 #inst-form-z {
-  z-index: 5; 
+  z-index: 15; 
 }
 
 .instructions-form-border {
-  z-index: 6; 
+  z-index: 16; 
   display: flex;
   justify-content: center;
   background-image: url("../images/floral_pattern.png");
@@ -238,7 +240,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 12;
+  z-index: 16;
   width: 500px;
   height: 50%; 
   background-color: white;
@@ -332,6 +334,74 @@
   display: none;
 }
 
+.instructions2-modal-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 
+#inst2-background-z {
+  z-index: 10;
+}
+
+#inst2-form-z {
+  z-index: 11; 
+}
+
+.instructions2-form-border {
+  z-index: 12; 
+  display: flex;
+  justify-content: center;
+  background-image: url("../images/kimono_pattern.jpg");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.5);
+  border:5px solid black; 
+  padding: 30px; 
+}
+
+.instructions2-form {
+  font-family: mikiyu;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 12;
+  width: 500px;
+  height: 50%; 
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+  border:5px solid black; 
+  padding: 0px 10px;
+}
+
+.instructions-title2 {
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.instructions2-description {
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.arrow-keys-container {
+  margin-bottom: 15px;
+}
+
+.arrow-keys {
+  height: 75px;
+  width: auto;
+  border: 5px solid black;
+}
+
+#close-instructions2 {
+  display: none;
+}
 
 
