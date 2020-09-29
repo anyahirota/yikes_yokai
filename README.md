@@ -13,6 +13,8 @@ In old Japan, a small country village is plagued by nightly hauntings and posses
 
 ### Gameplay
 
+Survive 12 hours of night!
+
 Move the monk up and down in front of the village using the up and down arrow keys. Vanquish a yokai by shooting it with a beam of light by pressing the space bar. Every time you shoot a beam, your beam count decreases by 1. Every time a beam hits a yokai, the monk absorbs their spirit energy and your beam count increases by 1. Every level or 15 game minutes (approx. 15 seconds), you gain a beam boost. Use a beam boost by simultaneously pressing the left and right arrow keys to return your beam count to 6. If a yokai reaches the village, you lose. If the "hours left" reaches 0, you have survived the night and win! 
 
 <p align="center">
@@ -109,19 +111,19 @@ function closeWelcomeModal() {
 </p>
 
 <p align="center">
-  <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal1.png">
+  <img height="auto" width="600" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal1.png">
 </p>
 
 <p align="center">
-  <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal2.png">
+  <img height="auto" width="600" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal2.png">
 </p>
 
 <p align="center">
-  <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal3.png">
+  <img height="auto" width="600" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal3.png">
 </p>
 
 <p align="center">
-  <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal4.png">
+  <img height="auto" width="600" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal4.png">
 </p>
 
 ### Canvas
@@ -185,10 +187,105 @@ listenForMovement() {
 
 - **Ghosts**
 
-While the ghost class constructs the attributes and functions of a single ghost, ghosts are spawned and animated within the game class. 
+While the ghost class constructs the attributes and functions of a single ghost, ghosts are spawned and animated within the game class. Multiple intervals are set to spawn ghosts in increasing numbers and speed to increase difficulty as the game progresses. This managed by the game class function: `spawnGhosts`
+
+```
+spawnGhosts() {
+    let addedSpeed = 1.0;
+    let numGhosts = 3; 
+    const getRandomGhost = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    setInterval(() => {
+        if (!this.paused) {
+            const randGhostNum = getRandomGhost(1, numGhosts) 
+            for (let i = 0; i < randGhostNum; i++) {
+                const id = Math.random()
+                this.ghosts[id] = new Ghost(id, addedSpeed); 
+            }
+        }
+    }, 3000)
+    setInterval(() => {
+        if (!this.paused) {
+            if (addedSpeed < 7.0) addedSpeed += 0.75; 
+            this.level += 1; 
+            this.monk.boosts += 1; 
+            this.hours -= 0.25; 
+        }
+    }, 15000)
+
+    setInterval(() => {
+        if (!this.paused) {
+          if (numGhosts < 5) numGhosts += 1;
+        }
+    }, 30000)
+}
+```
 
 - **Beams**
+
+Like ghosts, beam attributes and functions are constructed individually within its own beam class. However, because beams "belong" to the monk, beam manipulation is managed within the monk class. Beams are collected into a beams array that can be easily iterated through to track collisions and update animation. Beams are limited by the monk's "beam count" which has a maximum of 6.  Additionally, the user can restore beam count to 6 by using "beam boosts" incremented at each level up.  
+
+<p align="center">
+  <img height="auto" width="900" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/gameplay.png">
+</p>
+
+
 - **Collisions**
+
+With every game animation interval, the game class checks if there are any ghost-beam collisions and ghost-village collisions. When a beam collides with a ghost, both objects dissappear and the user's "hits" and "beam count" increase by 1. The process of collision detection is as follows:
+
+- iterate through ghosts and beams with nested for loops
+- check if a beam has intercepted a ghost by checking the distance between objects
+- return if there is no overlap; remove both ghost and beam if overlap occurs
+
+This is managed by the game class functions below:
+```
+checkBeamCollision() {
+    const ghosts = Object.values(this.ghosts); 
+    for (let i = 0; i < this.monk.beams.length; i++) {
+        for (let j = 0; j < ghosts.length; j++) {
+            const beam = this.monk.beams[i]; 
+            const ghost = ghosts[j].ghost; 
+            this.collision(ghost, beam);
+        }
+    }
+}
+
+collision(ghost, beam) {
+    if (ghost === undefined || beam === undefined) {return}; 
+    const distX = Math.abs(beam.x - ghost.x - (ghost.width / 20) / 2);
+    const distY = Math.abs(beam.y - ghost.y - (ghost.height / 20) / 2);
+    if (distX > ((ghost.width / 20) / 2 + beam.radius)) { return false; }
+    if (distY > ((ghost.height / 20) / 2 + beam.radius)) { return false; }
+    if (distX <= ((ghost.width / 20) / 2)) {
+        this.removeCollision(beam, ghost);
+        return true;
+    }
+    if (distY <= ((ghost.height / 20) / 2)) {
+        this.removeCollision(beam, ghost);
+        return true;
+    }
+    const dx = distX - (ghost.width / 20) / 2;
+    const dy = distY - (ghost.height / 20) / 2;
+    if (dx * dx + dy * dy <= (beam.radius * beam.radius) &&
+        distX <= ((ghost.width / 20) / 2 + beam.radius &&
+            distY <= ((ghost.height / 20) / 2 + beam.radius))) {
+        this.removeCollision(beam, ghost);
+        return true;
+    };
+}
+
+removeCollision(beam, ghost) {
+    this.monk.beams.splice(this.monk.beams.indexOf(beam), 1); 
+    delete this.ghosts[ghost.id];
+    this.score += 1
+    this.monk.beamCount += 1; 
+}
+```
+
+When a ghosts collides with the village, a "Game Over" modal appears, prompting the user to "Play Again".
 
 <p align="center">
   <img src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/gameovergif.gif">
@@ -196,7 +293,13 @@ While the ghost class constructs the attributes and functions of a single ghost,
 
 ### Additional Event Listeners
 - **Music**
+
+Users have the option to play traditional Japanese shamisen music by clicking the music icon above the top right corner of the game canvas. 
+
 - **Pause/Play**
+
+While styled to act as game elements, the play and pause game buttons are elements constructed outside of the canvas. After every game, the play and pause event listeners are removed and re-added to reflect the current game.   
+
 <p align="center">
   <img src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/pausinggif.gif">
 </p>
