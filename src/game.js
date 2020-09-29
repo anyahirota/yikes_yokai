@@ -50,12 +50,10 @@ class Game {
 
         setInterval(() => {
             if (!this.paused) {
-                if (this.score < 500) {
-                    const randGhostNum = getRandomGhost(1, numGhosts) 
-                    for (let i = 0; i < randGhostNum; i++) {
-                        const id = Math.random()
-                        this.ghosts[id] = new Ghost(id, addedSpeed); 
-                    }
+                const randGhostNum = getRandomGhost(1, numGhosts) 
+                for (let i = 0; i < randGhostNum; i++) {
+                    const id = Math.random()
+                    this.ghosts[id] = new Ghost(id, addedSpeed); 
                 }
             }
         }, 3000)

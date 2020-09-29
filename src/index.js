@@ -108,18 +108,12 @@ document.addEventListener("DOMContentLoaded", function() {
   //Close welcome modal
   const welcomeButton = document.getElementById("welcome-button");
 
-  welcomeButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    closeWelcomeModal();
-  });
+  welcomeButton.addEventListener("click", closeWelcomeModal); 
 
   function closeWelcomeModal() {
     const welcomeDiv = document.querySelector(".welcome-modal-container");
     welcomeDiv.setAttribute("id", "close-welcome");
-    welcomeButton.removeEventListener("click", function (e) {
-      e.preventDefault();
-      closeWelcomeModal();
-    });
+    welcomeButton.removeEventListener("click", closeWelcomeModal);
   }
 
   //Close story modal
