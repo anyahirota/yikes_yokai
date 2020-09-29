@@ -125,13 +125,68 @@ function closeWelcomeModal() {
 </p>
 
 ### Canvas
-Canvas objects and actions are organized into ES6 classes to allow for greater readability and organization. 
+Canvas objects and actions are organized into ES6 classes to allow for greater readability and organization. Canvas objects such as the monk and ghosts are manipulated and animated within the game class. The game class is exported to the index.js file to allow for easy interaction between the game within the Canvas and other Dom elements (see Additional Event Listeners - Pause/Play).  
 
 - **Monk**
 
-Users can move the monk up and down using the arrow keys and shoot beams by pressing the space bar. These actions are directed by functions within the monk class. 
+Users can move the monk up and down using the arrow keys and shoot beams by pressing the space bar. These actions are directed by functions within the monk class. User input is managed directly by the class function: `listenForMovement`
+
+```
+listenForMovement() {
+    window.addEventListener("keydown", (e) => {
+        if (e.keyCode === 38 || e.keyCode === 40) {
+            e.preventDefault()
+        }
+        this.keys[e.keyCode] = true;
+        if (e.keyCode === 32) {
+            e.preventDefault();
+            if (this.beamCount > 0) {
+                this.beams.push(
+                  new Beam(
+                    this.monk.x + this.monk.width / 55,
+                    this.monk.y + this.monk.height / 55 / 2
+                  )
+                );
+                this.monk.frameX = 0;    
+            }
+        }
+        if (e.keyCode === 37) {
+            e.preventDefault();
+            this.keys[37] = "powerup";
+        }
+
+        if (e.keyCode === 39) {
+            e.preventDefault();
+            this.keys[39] = "powerup";
+        }
+
+        if (this.keys[39] === "powerup" && this.keys[37] === "powerup" && this.boosts > 0) {
+            this.beamCount = 6;
+            this.boosts -= 1;
+        }
+    });
+
+    window.addEventListener("keyup",  (e) => {
+         if (e.keyCode === 38 || e.keyCode === 40) {
+           e.preventDefault();
+         }
+        delete this.keys[e.keyCode];
+        if (e.keyCode === 32) {
+            e.preventDefault();
+            if (this.beamCount > 0) {
+                this.monk.frameX = 3257.5;
+                this.beamCount -= 1; 
+            }
+        }
+    });
+}
+```
+
 
 - **Ghosts**
+
+While the ghost class constructs the attributes and functions of a single ghost, ghosts are spawned and animated within the game class. 
+
 - **Beams**
 - **Collisions**
 
