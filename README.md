@@ -92,7 +92,7 @@ This single page game uses modals to create a multipage story-like feel. Upon lo
   display: none;
 }
 ```
-To close each modal, an event listener was attached to buttons located at the bottom of each modal, labelled "next" or "enter". Example of JS used is displayed below:
+To close each modal, an event listener is attached to buttons located at the bottom of each modal, labelled "next" or "enter". An example of JavaScript used is displayed below:
 
 ```
 //JavaScript
@@ -131,7 +131,7 @@ Canvas objects and actions are organized into ES6 classes to allow for greater r
 
 - **Monk**
 
-Users can move the monk up and down using the arrow keys and shoot beams by pressing the space bar. These actions are directed by functions within the monk class. User input is managed directly by the class function: `listenForMovement`
+Users can move the monk up and down by using the arrow keys and shoot beams by pressing the space bar. These actions are managed by functions within the monk class. User input is managed directly by the monk class function: `listenForMovement`
 
 ```
 listenForMovement() {
@@ -187,7 +187,7 @@ listenForMovement() {
 
 - **Ghosts**
 
-While the ghost class constructs the attributes and functions of a single ghost, ghosts are spawned and animated within the game class. Multiple intervals are set to spawn ghosts in increasing numbers and speed to increase difficulty as the game progresses. This managed by the game class function: `spawnGhosts`
+While the ghost class constructs the attributes and functions of a single ghost, ghosts are spawned and animated within the game class. Multiple intervals are set to spawn ghosts in increasing numbers and speed to increase difficulty as the game progresses. This is managed by the game class function: `spawnGhosts`
 
 ```
 spawnGhosts() {
