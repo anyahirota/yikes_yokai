@@ -225,12 +225,9 @@ spawnGhosts() {
 
 - **Beams**
 
+<img align="right" height="auto" width="600" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/gameplay.png">
+
 Like ghosts, beam attributes and functions are constructed individually within its own beam class. However, because beams "belong" to the monk, beam manipulation is managed within the monk class. Beams are collected into a beams array that can be easily iterated through to track collisions and update animation. Beams are limited by the monk's "beam count" which has a maximum of 6.  Additionally, the user can restore beam count to 6 by using "beam boosts" incremented at each level up.  
-
-<p align="center">
-  <img height="auto" width="900" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/gameplay.png">
-</p>
-
 
 - **Collisions**
 
