@@ -61,7 +61,7 @@ class Game {
         }, 3000)
         setInterval(() => {
             if (!this.paused) {
-                if (addedSpeed < 7.0) addedSpeed += 0.8; 
+                if (addedSpeed < 7.0) addedSpeed += 0.75; 
                 this.level += 1; 
                 this.monk.boosts += 1; 
                 this.hours -= 0.25; 
