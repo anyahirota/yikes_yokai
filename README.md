@@ -110,23 +110,41 @@ function closeWelcomeModal() {
 
 <p align="center">
   <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal1.png">
+</p>
+
+<p align="center">
   <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal2.png">
+</p>
+
+<p align="center">
   <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal3.png">
+</p>
+
+<p align="center">
   <img height="auto" width="500" src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/modal4.png">
 </p>
 
-
-
-
 ### Canvas
+Canvas objects and actions are organized into ES6 classes to allow for greater readability and organization. 
+
 - **Monk**
+
+Users can move the monk up and down using the arrow keys and shoot beams by pressing the space bar. These actions are directed by functions within the monk class. 
+
 - **Ghosts**
 - **Beams**
 - **Collisions**
 
+<p align="center">
+  <img src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/gameovergif.gif">
+</p>
+
 ### Additional Event Listeners
 - **Music**
 - **Pause/Play**
+<p align="center">
+  <img src="https://yikes-yokai.s3-us-west-1.amazonaws.com/yy_readme/pausinggif.gif">
+</p>
 
 # Coming Soon
 
