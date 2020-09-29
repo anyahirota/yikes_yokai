@@ -25,8 +25,11 @@ document.addEventListener("DOMContentLoaded", function() {
     })
   }
 
+  let currentGame;  
+
   function startGame() {
     const game = new Game;
+    currentGame = game; 
     game.animate(ctx, canvas);
     const pauseGameButton = document.querySelector(".pause-game-button");
     pauseGameButton.removeAttribute("id", "clear-game-pause");
@@ -39,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
   playAgainButton.addEventListener("click", function(e) {
     e.preventDefault(); 
+    pauseGame();
+    unpauseGame(); 
     const pauseGameButton = document.querySelector(".pause-game-button");
     pauseGameButton.setAttribute("id", "clear-game-pause");
     const gameOverPopUp = document.querySelector(".game-over-popup");
@@ -59,29 +64,45 @@ document.addEventListener("DOMContentLoaded", function() {
    });
 
   //pauseGame
+
+  const _func1 = function (e) {
+    e.preventDefault();
+    const pauseGameButton = document.querySelector(".pause-game-button");
+    const playGameButton = document.querySelector(".play-game-button");
+    currentGame.paused = true;
+    pauseGameButton.setAttribute("id", "clear-game-pause");
+    playGameButton.removeAttribute("id", "clear-game-play");
+  };
   
   function pauseGame(game) {
     const pauseGameButton = document.querySelector(".pause-game-button");
     const playGameButton = document.querySelector(".play-game-button");
-    pauseGameButton.addEventListener("click", function(e) {
-      e.preventDefault(); 
-      game.paused = true; 
-      pauseGameButton.setAttribute("id", "clear-game-pause");
-      playGameButton.removeAttribute("id", "clear-game-play");
-    })
+    if (game) {
+      pauseGameButton.addEventListener("click", _func1);
+    } else {
+      pauseGameButton.removeEventListener("click", _func1);
+    }
+    
   }
 
   //unpause Game
+  const _func2 = function () {
+    event.preventDefault();
+    const playGameButton = document.querySelector(".play-game-button");
+    const pauseGameButton = document.querySelector(".pause-game-button");
+    currentGame.paused = false; 
+    playGameButton.setAttribute("id", "clear-game-play");
+    pauseGameButton.removeAttribute("id", "clear-game-pause");
+  };
 
   function unpauseGame(game) {
     const playGameButton = document.querySelector(".play-game-button");
     const pauseGameButton = document.querySelector(".pause-game-button");
-    playGameButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      game.paused = false;
-      playGameButton.setAttribute("id", "clear-game-play");
-      pauseGameButton.removeAttribute("id", "clear-game-pause");
-    });
+    if (game) {
+      playGameButton.addEventListener("click", _func2.bind(event, game))
+    } else {
+      playGameButton.removeEventListener("click", _func2.bind(event, game));
+    }
   }
 
   //Close welcome modal

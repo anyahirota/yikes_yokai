@@ -158,12 +158,16 @@ class Game {
         this.paused = true; 
         const gameOverPopUp = document.querySelector(".game-over-popup1");
         gameOverPopUp.removeAttribute("id", "clear-game-over-popup"); 
+        const pauseGameButton = document.querySelector(".pause-game-button");
+        pauseGameButton.setAttribute("id", "clear-game-pause");
     }
 
     winGame() {
         this.paused = true;
         const winnerPopUp = document.querySelector(".winner-popup"); 
         winnerPopUp.removeAttribute("id", "clear-winner-popup"); 
+        const pauseGameButton = document.querySelector(".pause-game-button");
+        pauseGameButton.setAttribute("id", "clear-game-pause");
     }
     
 }
