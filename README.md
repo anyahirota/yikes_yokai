@@ -5,6 +5,8 @@
 
 **Yikes, Yokai!** is a cute original shooter game inspired by Space Invaders and Japanese design and patterns. This game was built with vanilla Javascript and HTML Canvas (no additional libraries). 
 
+Check out the live site [here](https://anyahirota.github.io/yikes_yokai/)!
+
 ### Game Story
 
 "Yokai" are a class of supernatural monsters and spirits in Japanese folklore.
