@@ -307,4 +307,4 @@ While styled to act as game elements, the play and pause game buttons are elemen
 
 - Easy, Medium, Hard Settings
 
-Soon the user will be able to choose the difficulty of the their game. Users will be given a default of easy, but will be able to easily toggle through difficulty settings. As of right now, the game is set at a medium to hard difficulty to give all users, gamers and non-gamers, a fun challenge.  
+Soon the user will be able to choose the difficulty of the their game. Users will be given a default of easy, but will be able to easily toggle through difficulty settings. As of right now, the game is set at a medium to hard difficulty to give all users, gamers and non-gamers, a fun challenge!  
